@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: linear-gradient(#e0665d, #3971bb);
+    min-height: 100vh; /* Asegura que el gradiente cubra toda la altura de la ventana */
+    margin: 0; /* Elimina cualquier margen por defecto */
+  }
+  

@@ -1,0 +1,50 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+    Angular Simple CRUD
+  </a>
+</nav>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-4">
+      <ul class="list-group">
+        <li *ngFor='let employee of employeeArray' 
+        class="list-group-item list-group-item-action"
+        (click)="openForEdit(employee)"
+        [class.active]="employee == selectedEmployee">
+          <span class= "badge bg-primary">{{employee.id}}</span>  {{employee.name}} - {{employee.country}}
+        </li>
+      </ul>
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-tittle">
+            Insert a new employee
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="selectedEmployee.name"  placeholder="Insert a name" class="form-control mt-2">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="selectedEmployee.country"  placeholder="Insert a country" class="form-control mt-2">
+          </div>
+          <button 
+          (click)="addOrEdit()" 
+          class="btn btn-primary m-2">
+            Submit
+          </button>
+
+          <button (click)="delete()" 
+          *ngIf="selectedEmployee.id != 0"
+          class="btn btn-danger m-2">
+            Delete
+          </button>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <img width="300" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/512px-Angular_full_color_logo.svg.png">
+    </div>
+  </div>
+</div>
